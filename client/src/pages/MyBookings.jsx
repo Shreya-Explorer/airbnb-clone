@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import axios from "../api";
 
 function MyBookings() {
   const [bookings, setBookings] = useState([]);
@@ -13,7 +13,7 @@ function MyBookings() {
   const fetchBookings = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/bookings?user=${user.id}`
+        `${import.meta.env.VITE_API_URL}/api/bookings?user=${user.id}`
       );
 
       setBookings(res.data);

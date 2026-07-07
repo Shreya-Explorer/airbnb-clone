@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import axios from "../api";
 import { useNavigate } from "react-router-dom";
 
 function AddProperty() {
@@ -42,7 +42,7 @@ function AddProperty() {
       data.append("owner", user.id);
 
       await axios.post(
-        "http://localhost:5000/api/properties",
+        "${import.meta.env.VITE_API_URL}/api/properties",
         data,
         {
           headers: {

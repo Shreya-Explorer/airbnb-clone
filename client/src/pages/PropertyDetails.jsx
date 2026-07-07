@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import axios from "axios";
+import axios from "../api";
 import Navbar from "../components/Navbar";
 
 function PropertyDetails() {
@@ -15,7 +15,7 @@ function PropertyDetails() {
   const fetchProperty = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/properties"
+        "${import.meta.env.VITE_API_URL}/api/properties"
       );
 
       const selected = res.data.find((p) => p._id === id);

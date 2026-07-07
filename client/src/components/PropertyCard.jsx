@@ -11,7 +11,7 @@ function PropertyCard({ property, fetchProperties }) {
 
     try {
       await axios.delete(
-        `http://localhost:5000/api/properties/${property._id}`
+        `${import.meta.env.VITE_API_URL}/api/properties/${property._id}`
       );
 
       alert("Property deleted successfully!");

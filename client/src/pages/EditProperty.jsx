@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import axios from "../api";
 import { useNavigate, useParams } from "react-router-dom";
 
 function EditProperty() {
@@ -21,7 +21,7 @@ function EditProperty() {
   const fetchProperty = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/properties"
+        "${import.meta.env.VITE_API_URL}/api/properties"
       );
 
       const property = res.data.find((p) => p._id === id);
@@ -67,7 +67,7 @@ function EditProperty() {
       }
 
       await axios.put(
-        `http://localhost:5000/api/properties/${id}`,
+        `${import.meta.env.VITE_API_URL}/api/properties/${id}`,
         data,
         {
           headers: {

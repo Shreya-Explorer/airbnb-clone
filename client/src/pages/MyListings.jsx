@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import axios from "../api";
 import Navbar from "../components/Navbar";
 import PropertyCard from "../components/PropertyCard";
 
@@ -16,7 +16,7 @@ function MyListings() {
   const fetchMyProperties = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/properties/my?owner=${user.id}`
+        `${import.meta.env.VITE_API_URL}/api/properties/my?owner=${user.id}`
       );
 
       setProperties(res.data);

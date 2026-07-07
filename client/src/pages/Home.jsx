@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import axios from "../api";
 import Navbar from "../components/Navbar";
 import PropertyCard from "../components/PropertyCard";
 
@@ -15,7 +15,7 @@ function Home() {
   const fetchProperties = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/properties?search=${search}&maxPrice=${maxPrice}`
+        `${import.meta.env.VITE_API_URL}/api/properties?search=${search}&maxPrice=${maxPrice}`
       );
 
       setProperties(res.data);

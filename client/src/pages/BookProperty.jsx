@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import axios from "../api";
 import { useNavigate, useParams } from "react-router-dom";
 
 function BookProperty() {
@@ -22,7 +22,7 @@ function BookProperty() {
   const fetchProperty = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/properties"
+        "${import.meta.env.VITE_API_URL}/api/properties"
       );
 
       const selected = res.data.find((p) => p._id === id);
@@ -45,7 +45,7 @@ function BookProperty() {
 
     try {
       await axios.post(
-        "http://localhost:5000/api/bookings",
+        "${import.meta.env.VITE_API_URL}/api/bookings",
         {
           property: id,
           user: user.id,
