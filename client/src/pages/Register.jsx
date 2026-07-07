@@ -20,7 +20,7 @@ function Register() {
 
     try {
       const res = await axios.post(
-        "${import.meta.env.VITE_API_URL}/api/auth/register",
+        "/api/auth/register",
         formData
       );
 
@@ -33,7 +33,7 @@ function Register() {
       });
     } catch (error) {
       alert(
-        error.response?.data?.message || "Registration failed"
+        error.response?.data?.message || "Registration Failed"
       );
     }
   };
@@ -53,6 +53,7 @@ function Register() {
             value={formData.name}
             onChange={handleChange}
             className="w-full p-3 border rounded mb-4"
+            required
           />
 
           <input
@@ -62,6 +63,7 @@ function Register() {
             value={formData.email}
             onChange={handleChange}
             className="w-full p-3 border rounded mb-4"
+            required
           />
 
           <input
@@ -71,9 +73,13 @@ function Register() {
             value={formData.password}
             onChange={handleChange}
             className="w-full p-3 border rounded mb-4"
+            required
           />
 
-          <button className="w-full bg-red-500 text-white py-3 rounded">
+          <button
+            type="submit"
+            className="w-full bg-red-500 hover:bg-red-600 text-white py-3 rounded"
+          >
             Register
           </button>
         </form>

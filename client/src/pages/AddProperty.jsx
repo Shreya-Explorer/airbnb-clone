@@ -42,7 +42,7 @@ function AddProperty() {
       data.append("owner", user.id);
 
       await axios.post(
-        "${import.meta.env.VITE_API_URL}/api/properties",
+        "/api/properties",
         data,
         {
           headers: {

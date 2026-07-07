@@ -56,6 +56,7 @@ function Login() {
             value={formData.email}
             onChange={handleChange}
             className="w-full p-3 border rounded mb-4"
+            required
           />
 
           <input
@@ -65,11 +66,12 @@ function Login() {
             value={formData.password}
             onChange={handleChange}
             className="w-full p-3 border rounded mb-4"
+            required
           />
 
           <button
             type="submit"
-            className="w-full bg-red-500 text-white py-3 rounded hover:bg-red-600"
+            className="w-full bg-red-500 hover:bg-red-600 text-white py-3 rounded"
           >
             Login
           </button>

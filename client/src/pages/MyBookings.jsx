@@ -13,7 +13,7 @@ function MyBookings() {
   const fetchBookings = async () => {
     try {
       const res = await axios.get(
-        `${import.meta.env.VITE_API_URL}/api/bookings?user=${user.id}`
+        `axios.get("/api/bookings");`
       );
 
       setBookings(res.data);

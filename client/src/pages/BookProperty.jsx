@@ -21,9 +21,7 @@ function BookProperty() {
 
   const fetchProperty = async () => {
     try {
-      const res = await axios.get(
-        "${import.meta.env.VITE_API_URL}/api/properties"
-      );
+      const res = await axios.get("/api/properties");
 
       const selected = res.data.find((p) => p._id === id);
 

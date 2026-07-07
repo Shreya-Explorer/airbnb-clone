@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../api";
 import { Link } from "react-router-dom";
 
 function PropertyCard({ property, fetchProperties }) {
@@ -11,7 +11,7 @@ function PropertyCard({ property, fetchProperties }) {
 
     try {
       await axios.delete(
-        `${import.meta.env.VITE_API_URL}/api/properties/${property._id}`
+        `/api/properties/${property._id}`
       );
 
       alert("Property deleted successfully!");
