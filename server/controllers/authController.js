@@ -42,7 +42,11 @@ const login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
+    console.log("Email received:", email);
+
     const user = await User.findOne({ email });
+
+    console.log("User found:", user);
 
     if (!user) {
       return res.status(400).json({
@@ -51,6 +55,8 @@ const login = async (req, res) => {
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
+
+    console.log("Password match:", isMatch);
 
     if (!isMatch) {
       return res.status(400).json({
@@ -74,7 +80,7 @@ const login = async (req, res) => {
       },
     });
   } catch (error) {
-    console.log(error);
+    console.error(error);
     res.status(500).json({
       message: "Server Error",
     });
