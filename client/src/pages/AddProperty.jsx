@@ -54,9 +54,14 @@ function AddProperty() {
       alert("Property Added Successfully! 🎉");
       navigate("/");
     } catch (error) {
-      console.log(error);
-      alert("Failed to add property.");
-    }
+        console.error(error);
+
+        alert(
+          error.response?.data?.message ||
+          error.message ||
+          "Failed to add property."
+        );
+      }
   };
 
   return (
