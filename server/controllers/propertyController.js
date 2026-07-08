@@ -103,7 +103,10 @@ const updateProperty = async (req, res) => {
       property,
     });
   } catch (error) {
-    console.log(error);
+    console.error("========== CREATE PROPERTY ERROR ==========");
+    console.error(error);
+    console.error("Message:", error.message);
+    console.error("Stack:", error.stack);
 
     res.status(500).json({
       message: error.message,
